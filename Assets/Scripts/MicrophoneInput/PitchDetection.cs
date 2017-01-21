@@ -13,7 +13,7 @@ namespace MicrophoneInput
         public Text PitchDisplayText;
         public Text VolumeDisplayText;
 
-        private const int QSamples = 1024;
+        private const int QSamples = 8192;
         private const float RefValue = 0.1f;
         private const float Threshold = 0.005f;
 
