@@ -241,6 +241,22 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82645168769732640, guid: f1eb03cbab690433f990a95153160b40,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300001, guid: c13b7c085a56049b094e6c038f4268a1,
+        type: 2}
+    - target: {fileID: 82645168769732640, guid: f1eb03cbab690433f990a95153160b40,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82645168769732640, guid: f1eb03cbab690433f990a95153160b40,
+        type: 2}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1eb03cbab690433f990a95153160b40, type: 2}
   m_IsPrefabParent: 0

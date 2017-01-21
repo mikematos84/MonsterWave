@@ -12,7 +12,7 @@ namespace MicrophoneInput
 
         private readonly string _audioGameObject = "AudioSource";
         private readonly KeyCode _micPress = KeyCode.BackQuote;
-        private readonly int _maxRecordTime = 10;
+        private readonly int _maxRecordTime = 300;
         private readonly int _frequency = 44100;
 
 
@@ -21,6 +21,7 @@ namespace MicrophoneInput
         void Start ()
         {
             _microphoneName = Microphone.devices[0];
+            Debug.Log("Listening on microphone : " + _microphoneName);
             _audioSource = GameObject.Find(_audioGameObject).GetComponent<AudioSource>();
 
         }
