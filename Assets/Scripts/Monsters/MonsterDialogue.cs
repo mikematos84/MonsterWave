@@ -11,9 +11,13 @@ public class MonsterDialogue : MonoBehaviour {
 
     private int randomCharacter;
     private int totalCharacters = 3;
-    private TextMesh tempText;
+    private TextMesh monsterText;
     private string currentStatus;
     public string newStatus;
+
+    private string tempText;
+    private int waitCount = 0;
+    private int maxWait = 1;
 
     private string[] greetingOptions = new string[] {"I'm Bob! \nI love making friends!", "Hiya, I'm Yolanda! \nDo you wanna hug?", "Ronald wants to throw you\n a surprise birthday party!", "Hola! I'm Penelope, \nand I wrote you a song!"};
     private string[] confusedOptions = new string[] {"But...but...\nare we not friends??", "How...come...you...\ndon't wanna hug??", "What...do...you...mean...\nit's not your birthday??", "Did...you...just...say...\nyou don't like songs??"};
@@ -22,6 +26,8 @@ public class MonsterDialogue : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
+        monsterText = GetComponent<TextMesh>();
 
         randomCharacter = Random.Range(0, totalCharacters);
         MonsterGreeting = greetingOptions[randomCharacter];
@@ -43,29 +49,49 @@ public class MonsterDialogue : MonoBehaviour {
 
         }
 
+        if (tempText != "")
+        {
+            if (waitCount == 0)
+            {
+                monsterText.text += tempText.Substring(0, 1);
+                tempText = tempText.Substring(1, tempText.Length - 1);
+                waitCount++;
+            }
+            else if (waitCount == maxWait)
+            {
+                waitCount = 0;
+
+            }
+            else
+            {
+
+                waitCount++;
+
+            }
+        }
+
     }
 
     public void SetDialogue (string monsterStatus)
     {
-
-       tempText = GetComponent<TextMesh>();
-
         switch(monsterStatus)
         {
             case "greeting":
-                tempText.text = MonsterGreeting;
+                tempText = MonsterGreeting;
                 break;
             case "confused":
-                tempText.text = MonsterConfused;
+                tempText = MonsterConfused;
                 break;
             case "angry":
-                tempText.text = MonsterAngry;
+                tempText = MonsterAngry;
                 break;
             case "happy":
-                tempText.text = MonsterHappy;
+                tempText = MonsterHappy;
                 break;
 
         }
+
+        monsterText.text = "";
 
     }
 	
