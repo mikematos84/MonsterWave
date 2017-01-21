@@ -9,7 +9,7 @@ public class SpawnPoint : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         mgr = FindObjectOfType<MonsterManager>();
-        mgr.spawnPoints.Add(this);
+        mgr.AddSpawnPoint(this);
     }
 	
 	// Update is called once per frame
