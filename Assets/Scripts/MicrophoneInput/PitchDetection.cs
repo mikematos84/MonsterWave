@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace MicrophoneInput
 {
@@ -8,6 +9,9 @@ namespace MicrophoneInput
         public float DbValue;
         public float PitchValue;
 
+        public Text PitchDisplayText;
+        public Text VolumeDisplayText;
+
         private const int QSamples = 1024;
         private const float RefValue = 0.1f;
         private const float Threshold = 0.02f;
@@ -15,12 +19,15 @@ namespace MicrophoneInput
         float[] _samples;
         private float[] _spectrum;
         private float _fSample;
+        private AudioSource _audioSource;
+
 
         void Start()
         {
             _samples = new float[QSamples];
             _spectrum = new float[QSamples];
             _fSample = AudioSettings.outputSampleRate;
+            _audioSource = GetComponent<AudioSource>();
         }
 
         void Update()
@@ -30,7 +37,7 @@ namespace MicrophoneInput
 
         void AnalyzeSound()
         {
-            GetComponent<AudioSource>().GetOutputData(_samples, 0); // fill array with samples
+            _audioSource.GetOutputData(_samples, 0); // fill array with samples
             int i;
             float sum = 0;
             for (i = 0; i < QSamples; i++)
@@ -41,7 +48,7 @@ namespace MicrophoneInput
             DbValue = 20 * Mathf.Log10(RmsValue / RefValue); // calculate dB
             if (DbValue < -160) DbValue = -160; // clamp it to -160dB min
             // get sound spectrum
-            GetComponent<AudioSource>().GetSpectrumData(_spectrum, 0, FFTWindow.BlackmanHarris);
+            _audioSource.GetSpectrumData(_spectrum, 0, FFTWindow.BlackmanHarris);
             float maxV = 0;
             var maxN = 0;
             for (i = 0; i < QSamples; i++)
@@ -59,7 +66,24 @@ namespace MicrophoneInput
                 var dR = _spectrum[maxN + 1] / _spectrum[maxN];
                 freqN += 0.5f * (dR * dR - dL * dL);
             }
-            PitchValue = freqN * (_fSample / 2) / QSamples; // convert index to frequency
+            PitchValue = GetPitchValue(freqN);
+            DisplayUI();
+        }
+
+        private float GetPitchValue(float freqN)
+        {
+            return freqN * (_fSample / 2) / QSamples; // convert index to frequency
+        }
+
+        private void DisplayUI()
+        {
+            SetText(PitchValue, "Pitch : ", PitchDisplayText);
+            SetText(DbValue, "Volume : ", VolumeDisplayText);
+        }
+
+        private void SetText(float value, string label, Text uiText)
+        {
+            uiText.text = string.Concat(label, value.ToString());
         }
     }
 }
