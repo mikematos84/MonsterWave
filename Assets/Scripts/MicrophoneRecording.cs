@@ -64,7 +64,7 @@ public class MicrophoneRecording : MonoBehaviour {
         var trimmedData = new float[recordingLength * _tempClip.channels];
         Array.Copy(clipData, trimmedData, recordingLength - 1);
         var trimmedClip = AudioClip.Create(_tempClip.name, recordingLength, _tempClip.channels, _tempClip.frequency,
-            false, false);
+            false);
         trimmedClip.SetData(trimmedData, 0);
         _audioSource.clip = trimmedClip;
         PlaybackAudio();
