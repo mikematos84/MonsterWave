@@ -12,7 +12,7 @@ namespace MicrophoneInput
 
         private readonly string _audioGameObject = "AudioSource";
         private readonly KeyCode _micPress = KeyCode.BackQuote;
-        private readonly int _maxRecordTime = 10;
+        private readonly int _maxRecordTime = 300;
         private readonly int _frequency = 44100;
 
 
@@ -21,6 +21,7 @@ namespace MicrophoneInput
         void Start ()
         {
             _microphoneName = Microphone.devices[0];
+            Debug.Log("Listening on microphone : " + _microphoneName);
             _audioSource = GameObject.Find(_audioGameObject).GetComponent<AudioSource>();
 
         }
@@ -41,10 +42,14 @@ namespace MicrophoneInput
         }
         #endregion
 
+        /// <summary>
+        /// Record on the microphone and store the recorded clip in the AudioSource
+        /// </summary>
         private void StartRecording()
         {
             _tempClip = Microphone.Start(_microphoneName, false, _maxRecordTime, _frequency);
             _audioSource.clip = _tempClip;
+            //hacky thing to get audio to playback only if there's something in the buffer
             while (!(Microphone.GetPosition(_microphoneName) > 0))
             {
             }
