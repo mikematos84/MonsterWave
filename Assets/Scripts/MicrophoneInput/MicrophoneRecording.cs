@@ -1,7 +1,8 @@
 ﻿using System;
 using UnityEngine;
+using Microphone = UnityEngine.Microphone;
 
-namespace Microphone
+namespace MicrophoneInput
 {
     public class MicrophoneRecording : MonoBehaviour {
 
@@ -11,17 +12,15 @@ namespace Microphone
 
         private readonly string _audioGameObject = "AudioSource";
         private readonly KeyCode _micPress = KeyCode.BackQuote;
-        private readonly int _maxRecordTime = 300;
+        private readonly int _maxRecordTime = 10;
         private readonly int _frequency = 44100;
 
-        public int SpectrumDataMultiplier = 10;
-        private static float HighPitchThreshold = 0.025f;
 
 
         #region monobehaviours
         void Start ()
         {
-            _microphoneName = UnityEngine.Microphone.devices[0];
+            _microphoneName = Microphone.devices[0];
             _audioSource = GameObject.Find(_audioGameObject).GetComponent<AudioSource>();
 
         }
@@ -44,8 +43,13 @@ namespace Microphone
 
         private void StartRecording()
         {
-            _tempClip = UnityEngine.Microphone.Start(_microphoneName, false, _maxRecordTime, _frequency);
+            _tempClip = Microphone.Start(_microphoneName, false, _maxRecordTime, _frequency);
             _audioSource.clip = _tempClip;
+            while (!(Microphone.GetPosition(_microphoneName) > 0))
+            {
+            }
+
+            PlaybackAudio();
         }
 
         /// <summary>
@@ -53,11 +57,11 @@ namespace Microphone
         /// </summary>
         private void StopRecording()
         {
-            var recordingLength = UnityEngine.Microphone.GetPosition(_microphoneName);
+            var recordingLength = Microphone.GetPosition(_microphoneName);
             if (recordingLength == 0)
                 return;
-            UnityEngine.Microphone.End(_microphoneName);
-            ProcessAudio(recordingLength);
+            Microphone.End(_microphoneName);
+            //ProcessAudio(recordingLength);
         }
 
         /// <summary>
@@ -74,7 +78,6 @@ namespace Microphone
                 false);
             trimmedClip.SetData(trimmedData, 0);
             _audioSource.clip = trimmedClip;
-            PlaybackAudio();
         }
 
         /// <summary>

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Microphone
+namespace MicrophoneInput
 {
     public class PitchDetection : MonoBehaviour
     {
