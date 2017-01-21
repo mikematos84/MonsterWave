@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4762242328553942}
   - component: {fileID: 23445591765358924}
   - component: {fileID: 102485873266137066}
+  - component: {fileID: 114444027581402612}
   m_Layer: 0
   m_Name: MonsterText
   m_TagString: Untagged
@@ -34,9 +35,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1084718615105178}
-  m_LocalRotation: {x: -0.000000062791315, y: 0.7071068, z: 0.0000000627913, w: 0.7071068}
-  m_LocalPosition: {x: 7.300002, y: 0, z: 10.680002}
-  m_LocalScale: {x: 0.30000007, y: 0.3, z: 0.30000007}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.011316271, y: 1.2814876, z: -0.6087723}
+  m_LocalScale: {x: 0.026894765, y: 0.021898286, z: 0.021898286}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -79,17 +80,29 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1084718615105178}
-  m_Text: "I'm Bob! \nI love making friends!"
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 100
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 1d6e5d208944a604d9741420f4c124a4, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &114444027581402612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1084718615105178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6426b47a0ec9f954080bef07bbc44bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newStatus: 

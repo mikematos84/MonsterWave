@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MonsterDialogue : MonoBehaviour {
 
+    public string newStatus = "";
+
     private string MonsterGreeting;
     private string MonsterConfused;
     private string MonsterAngry;
@@ -12,12 +14,13 @@ public class MonsterDialogue : MonoBehaviour {
     private int randomCharacter;
     private int totalCharacters = 3;
     private TextMesh monsterText;
-    private string currentStatus;
-    public string newStatus;
+    private string currentStatus = "";
 
-    private string tempText;
+    private string tempText = "";
     private int waitCount = 0;
     private int maxWait = 1;
+    private float revealTimer = 5.0f;
+    private float maxRevealTime = 5.0f;
 
     private string[] greetingOptions = new string[] {"I'm Bob! \nI love making friends!", "Hiya, I'm Yolanda! \nDo you wanna hug?", "Ronald wants to throw you\n a surprise birthday party!", "Hola! I'm Penelope, \nand I wrote you a song!"};
     private string[] confusedOptions = new string[] {"But...but...\nare we not friends??", "How...come...you...\ndon't wanna hug??", "What...do...you...mean...\nit's not your birthday??", "Did...you...just...say...\nyou don't like songs??"};
@@ -35,12 +38,38 @@ public class MonsterDialogue : MonoBehaviour {
         MonsterAngry = angryOptions[randomCharacter];
         MonsterHappy = happyOptions[randomCharacter];
 
-        newStatus = "greeting";
 
 	}
 
     void Update ()
     {
+        if(revealTimer > 0.0f)
+        {
+            revealTimer -= Time.deltaTime;
+
+        }
+
+        if(revealTimer <= 0.0f)
+        {
+
+            switch (newStatus)
+            {
+
+                case "":
+                    newStatus = "greeting";
+                    break;
+                case "greeting":
+                    newStatus = "confused";
+                    break;
+                case "confused":
+                    newStatus = "angry";
+                    break;
+
+            }
+
+            revealTimer = maxRevealTime;
+
+        }
 
         if(newStatus != currentStatus)
         {
