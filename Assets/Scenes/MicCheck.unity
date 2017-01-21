@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 643047270}
   - component: {fileID: 643047269}
   m_Layer: 0
-  m_Name: MicrophoneTest
+  m_Name: Microphone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 643047268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 502bfa8e5d1a84e2c8e8d613e6b9e7ba, type: 3}
+  m_Script: {fileID: 11500000, guid: c03a358f3f49d4cdca95f33ab713aa56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &643047270
