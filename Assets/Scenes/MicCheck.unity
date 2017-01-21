@@ -199,6 +199,27 @@ MonoBehaviour:
   PitchValue: 0
   PitchDisplayText: {fileID: 1522391311}
   VolumeDisplayText: {fileID: 2122527733}
+--- !u!82 &488755193 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82645168769732640, guid: f1eb03cbab690433f990a95153160b40,
+    type: 2}
+  m_PrefabInternal: {fileID: 788989646}
+--- !u!114 &488755194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 488755190}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ca1275456a544b38bce41c376354a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: 100
+  loudness: 0
+  frequency: 0
+  samplerate: 11024
+  audio: {fileID: 488755193}
 --- !u!1001 &488886585
 Prefab:
   m_ObjectHideFlags: 0

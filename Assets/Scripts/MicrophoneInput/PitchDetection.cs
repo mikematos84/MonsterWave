@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MicrophoneInput.Pitch;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace MicrophoneInput
@@ -14,12 +15,14 @@ namespace MicrophoneInput
 
         private const int QSamples = 1024;
         private const float RefValue = 0.1f;
-        private const float Threshold = 0.02f;
+        private const float Threshold = 0.005f;
 
         float[] _samples;
         private float[] _spectrum;
         private float _fSample;
         private AudioSource _audioSource;
+
+        private PitchTracker _pitchTracker;
 
 
         void Start()
@@ -28,6 +31,7 @@ namespace MicrophoneInput
             _spectrum = new float[QSamples];
             _fSample = AudioSettings.outputSampleRate;
             _audioSource = GetComponent<AudioSource>();
+            _pitchTracker = new PitchTracker(_fSample);
         }
 
         void Update()
@@ -55,7 +59,6 @@ namespace MicrophoneInput
             { // find max
                 if (!(_spectrum[i] > maxV) || !(_spectrum[i] > Threshold))
                     continue;
-
                 maxV = _spectrum[i];
                 maxN = i; // maxN is the index of max
             }
@@ -66,7 +69,7 @@ namespace MicrophoneInput
                 var dR = _spectrum[maxN + 1] / _spectrum[maxN];
                 freqN += 0.5f * (dR * dR - dL * dL);
             }
-            PitchValue = GetPitchValue(freqN);
+            PitchValue = GetPitchValue(_pitchTracker.ProcessBuffer(_samples));
             DisplayUI();
         }
 
