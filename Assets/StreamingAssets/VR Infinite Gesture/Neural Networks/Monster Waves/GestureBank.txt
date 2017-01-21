@@ -1,0 +1,16 @@
+{
+    "gestures": [
+        {
+            "name": "Simple Wave",
+            "hand": 1,
+            "isSynchronous": false,
+            "exampleCount": 0
+        },
+        {
+            "name": "Vertical Wave",
+            "hand": 1,
+            "isSynchronous": false,
+            "exampleCount": 0
+        }
+    ]
+}
