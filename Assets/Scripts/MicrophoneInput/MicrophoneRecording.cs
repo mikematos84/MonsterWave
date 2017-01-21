@@ -42,10 +42,14 @@ namespace MicrophoneInput
         }
         #endregion
 
+        /// <summary>
+        /// Record on the microphone and store the recorded clip in the AudioSource
+        /// </summary>
         private void StartRecording()
         {
             _tempClip = Microphone.Start(_microphoneName, false, _maxRecordTime, _frequency);
             _audioSource.clip = _tempClip;
+            //hacky thing to get audio to playback only if there's something in the buffer
             while (!(Microphone.GetPosition(_microphoneName) > 0))
             {
             }
