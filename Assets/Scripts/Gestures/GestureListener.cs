@@ -9,7 +9,6 @@ namespace Edwon.VR.Gesture
         public GameObject m_Head = null;
         public Camera m_Camera = null;
         public Monster m_Monster = null;
- 
 
         void Start()
         {
@@ -18,9 +17,11 @@ namespace Edwon.VR.Gesture
 
         void Update()
         {
-
             Ray ray = m_Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             RaycastHit hit;
+
+            Vector3 forward = m_Camera.transform.TransformDirection(Vector3.forward) * 10;
+            Debug.DrawRay(m_Camera.transform.position, forward, Color.green);
 
             if (Physics.Raycast(ray, out hit))
             {
@@ -28,7 +29,7 @@ namespace Edwon.VR.Gesture
                 m_Monster = hit.transform.gameObject.GetComponent<Monster>();
                 if (m_Monster)
                 {
-                    Debug.Log(m_Monster.waveType);
+                    //Debug.Log(m_Monster.waveType);
                 }
             }
         }
@@ -47,12 +48,14 @@ namespace Edwon.VR.Gesture
 
         void OnGestureDetected(string gestureName, double confidence, Handedness hand, bool isDouble)
         {
-            //string confidenceString = confidence.ToString().Substring(0, 4);
-            //Debug.Log("detected gesture: " + gestureName + " with confidence: " + confidenceString);
-
             if (m_Monster != null)
             {
-                if(m_Monster.waveType == gestureName)
+                string gestureNameStripped = gestureName.Replace("Left--", "");
+                gestureNameStripped = gestureName.Replace("Right--", "");
+
+                int index = System.Array.IndexOf(m_Monster.waveType, gestureNameStripped);
+
+                if (index >= 0)
                 {
                     m_Monster.Friend();
                 }
@@ -71,6 +74,9 @@ namespace Edwon.VR.Gesture
 
                 case "Vertical Wave":
                     Debug.Log("Vertical Wave");
+                    break;
+
+                default:
                     break;
             }
         }
