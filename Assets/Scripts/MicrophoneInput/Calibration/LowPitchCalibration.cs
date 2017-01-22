@@ -26,7 +26,7 @@ namespace MicrophoneInput
 
         protected void Initialize()
         {
-            PitchCalibrationText = GetComponent<Text>();
+            PitchCalibrationText = GetComponentInParent<Text>();
             PitchDetection = GameObject.Find(PitchDetectionObjectName).GetComponent<PitchDetection>();
 
             DetectingVoiceString = "Detecting voice...";

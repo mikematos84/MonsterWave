@@ -28,6 +28,9 @@ namespace MicrophoneInput
 
         private Transform DataSaver;
 
+        public float MedianPitch { get; private set; }
+
+        protected List<float> pitches = new List<float>();
 
         protected void Initialize()
         {
@@ -48,7 +51,6 @@ namespace MicrophoneInput
 
         protected IEnumerator Calibrate()
         {
-            var pitches = new List<float>();
 
             while (Calibrating && !IsFinishedCalibrating)
             {
@@ -64,7 +66,7 @@ namespace MicrophoneInput
                 var medianPitch = GetMedian(pitches);
                 PitchCalibrationText.text = RegisteredVoiceString + medianPitch;
 
-                DataSaver = GameObject.Find("MicrophoneObjects").transform;
+                DataSaver = GameObject.Find("MicrophoneGrouping").transform;
                 DataSaver.GetComponent<SceneSaver>().SetTargetPitch(transform,medianPitch);
             }
         }

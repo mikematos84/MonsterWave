@@ -9,6 +9,9 @@ namespace MicrophoneInput.Calibration
     public class CalibrationManager : MonoBehaviour
     {
 
+        public GameObject LowPitchCalibrationObj;
+        public GameObject HighPitchCalibrationObj;
+
         private CalibrationBase _lowPitchCalibration;
         private CalibrationBase _highPitchCalibration;
 
@@ -17,13 +20,13 @@ namespace MicrophoneInput.Calibration
         // Use this for initialization
         void Start ()
         {
-            _lowPitchCalibration = GameObject.Find("LowPitchCalibration").GetComponent<CalibrationBase>();
-            _highPitchCalibration = GameObject.Find("HighPitchCalibration").GetComponent<CalibrationBase>();
+            _lowPitchCalibration = LowPitchCalibrationObj.GetComponentInChildren<CalibrationBase>();
+            _highPitchCalibration = HighPitchCalibrationObj.GetComponentInChildren<CalibrationBase>();
 
-            _lowPitchCalibration.gameObject.SetActive(false);
-            _highPitchCalibration.gameObject.SetActive(false);
+            SetObjectAndChildrenActive(LowPitchCalibrationObj, false);
+            SetObjectAndChildrenActive(HighPitchCalibrationObj, false);
 
-            _lowPitchCalibration.gameObject.SetActive(true);
+            SetObjectAndChildrenActive(LowPitchCalibrationObj, true);
 
         }
 	
@@ -39,9 +42,22 @@ namespace MicrophoneInput.Calibration
 
         private IEnumerator DelayNextCalibration()
         {
+            LowPitchCalibrationObj.transform.GetChild(0).gameObject.SetActive(false);
             yield return new WaitForSeconds(2f);
-            _highPitchCalibration.gameObject.SetActive(true);
+            SetObjectAndChildrenActive(HighPitchCalibrationObj, true);
             activated = true;
+        }
+
+        private void SetObjectAndChildrenActive(GameObject go, bool isActive)
+        {
+            for (int i = 0; i < go.transform.childCount; i++)
+            {
+                go.transform.GetChild(i).gameObject.SetActive(isActive);
+            }
+
+            go.SetActive(isActive);
+
+
         }
     }
 }
