@@ -13,12 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 0
   vrType: 0
-  showVRUI: 1
+  showVRUI: 0
   gestureButton: 5
   confidenceThreshold: 0.9870297312736511
   gestureSyncDelay: 500
   minimumGestureAxisLength: 0.1
-  beginInDetectMode: 0
+  beginInDetectMode: 1
   vrGestureDetectType: 0
   currentNeuralNet: Monster Waves
   lastNeuralNet: Monster Waves
@@ -45,4 +45,4 @@ MonoBehaviour:
     isSynchronous: 0
     exampleCount: 0
   state: 0
-  stateInitial: 0
+  stateInitial: 8

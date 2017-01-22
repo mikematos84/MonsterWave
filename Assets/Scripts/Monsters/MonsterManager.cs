@@ -5,7 +5,7 @@ using UnityEngine;
 public class MonsterManager : MonoBehaviour {
 
     public List<SpawnPoint> spawnPoints;
-    public List<Monster> monsters;
+    public List<GameObject> monsters;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +21,7 @@ public class MonsterManager : MonoBehaviour {
     {
         spawnPoints.Add(spawnPoint);
         Transform m_Transform = monsters[0].transform;
-        Monster m_Object = Instantiate(monsters[0], new Vector3(0,0,0), Quaternion.identity);
+        GameObject m_Object = Instantiate(monsters[0], new Vector3(0,0,0), Quaternion.identity);
         m_Object.transform.position = spawnPoint.transform.position;
         m_Object.transform.rotation = spawnPoint.transform.rotation;
     }
