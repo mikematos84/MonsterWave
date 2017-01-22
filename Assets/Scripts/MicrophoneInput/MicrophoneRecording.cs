@@ -9,11 +9,11 @@ namespace MicrophoneInput
         private string _microphoneName;
         private AudioSource _audioSource;
         private AudioClip _tempClip;
+        private int _sampleRate;
 
-        private readonly string _audioGameObject = "AudioSource";
+        private readonly string _audioGameObject = "PitchDetection";
         private readonly KeyCode _micPress = KeyCode.BackQuote;
         private readonly int _maxRecordTime = 300;
-        private readonly int _frequency = 44100;
 
 
 
@@ -21,8 +21,15 @@ namespace MicrophoneInput
         void Start ()
         {
             _microphoneName = Microphone.devices[0];
+            _sampleRate = AudioSettings.outputSampleRate;
             Debug.Log("Listening on microphone : " + _microphoneName);
             _audioSource = GameObject.Find(_audioGameObject).GetComponent<AudioSource>();
+
+
+            _audioSource.clip = Microphone.Start(null, true, 10, _sampleRate);
+            _audioSource.loop = true; // Set the AudioClip to loop
+            while (!(Microphone.GetPosition(_microphoneName) > 0)){} // Wait until the recording has started
+            _audioSource.Play(); // Play the audio source!
 
         }
 
@@ -47,7 +54,7 @@ namespace MicrophoneInput
         /// </summary>
         private void StartRecording()
         {
-            _tempClip = Microphone.Start(_microphoneName, false, _maxRecordTime, _frequency);
+            _tempClip = Microphone.Start(_microphoneName, false, _maxRecordTime, _sampleRate);
             _audioSource.clip = _tempClip;
             //hacky thing to get audio to playback only if there's something in the buffer
             while (!(Microphone.GetPosition(_microphoneName) > 0))
