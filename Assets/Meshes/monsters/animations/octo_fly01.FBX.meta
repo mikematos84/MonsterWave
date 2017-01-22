@@ -1,0 +1,182 @@
+fileFormatVersion: 2
+guid: 0e1da551af23d174e8a3e6954a441d0e
+timeCreated: 1485047680
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: arm002
+    100002: arm003
+    100004: arm004
+    100006: arm005
+    100008: arm006
+    100010: arm007
+    100012: arm008
+    100014: arm01
+    100016: hair
+    100018: mouth
+    100020: //RootNode
+    400000: arm002
+    400002: arm003
+    400004: arm004
+    400006: arm005
+    400008: arm006
+    400010: arm007
+    400012: arm008
+    400014: arm01
+    400016: hair
+    400018: mouth
+    400020: //RootNode
+    2300000: arm002
+    2300002: arm003
+    2300004: arm004
+    2300006: arm005
+    2300008: arm006
+    2300010: arm007
+    2300012: arm008
+    2300014: arm01
+    2300016: hair
+    2300018: mouth
+    2300020: //RootNode
+    3300000: arm002
+    3300002: arm003
+    3300004: arm004
+    3300006: arm005
+    3300008: arm006
+    3300010: arm007
+    3300012: arm008
+    3300014: arm01
+    3300016: hair
+    3300018: mouth
+    3300020: //RootNode
+    4300000: body
+    4300002: arm01
+    4300004: mouth
+    4300006: hair
+    4300008: arm002
+    4300010: arm003
+    4300012: arm004
+    4300014: arm005
+    4300016: arm006
+    4300018: arm007
+    4300020: arm008
+    7400000: octo_fly01
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: octo_fly01
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 95
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: arm01
+        weight: 1
+      - path: arm002
+        weight: 1
+      - path: arm003
+        weight: 1
+      - path: arm004
+        weight: 1
+      - path: arm005
+        weight: 1
+      - path: arm006
+        weight: 1
+      - path: arm007
+        weight: 1
+      - path: arm008
+        weight: 1
+      - path: hair
+        weight: 1
+      - path: mouth
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
