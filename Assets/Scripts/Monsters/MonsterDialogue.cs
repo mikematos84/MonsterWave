@@ -107,12 +107,15 @@ public class MonsterDialogue : MonoBehaviour {
         {
             case "greeting":
                 tempText = MonsterGreeting;
+                monsterText.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
                 break;
             case "confused":
                 tempText = MonsterConfused;
+                monsterText.transform.localScale = new Vector3(0.012f, 0.012f, 0.012f);
                 break;
             case "angry":
                 tempText = MonsterAngry;
+                monsterText.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
                 break;
             case "happy":
                 tempText = MonsterHappy;
