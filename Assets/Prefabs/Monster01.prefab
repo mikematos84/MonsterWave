@@ -176,6 +176,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4868925276000894}
+  - component: {fileID: 82339689043766676}
+  - component: {fileID: 114504125359035406}
   m_Layer: 0
   m_Name: Monster01
   m_TagString: Untagged
@@ -940,6 +942,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.69104004, y: 1.1897787, z: 0.2}
   m_Center: {x: -0.02558376, y: 0.12116506, z: -0.0000013052394}
+--- !u!82 &82339689043766676
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1453844151304878}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 038bb1dc84d35b14c933366bc05fb104, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.3
+  m_Pitch: 0.96
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 3
+  MaxDistance: 12.5
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95373545811643018
 Animator:
   serializedVersion: 3
@@ -1071,12 +1153,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6426b47a0ec9f954080bef07bbc44bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newStatus: 
+  MonsterRole: 1
+  revealTimer: 3
   status:
   - greeting
   - confused
   - angry
   - happy
+--- !u!114 &114504125359035406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1453844151304878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a82d06957342fd4181d869fffa79d07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterClips:
+  - {fileID: 8300000, guid: 8ab39ede26914a940909b753133cc95c, type: 3}
+  - {fileID: 8300000, guid: c4fca1a0a20b7fb478a7458f555f3fb5, type: 3}
+  - {fileID: 8300000, guid: 038bb1dc84d35b14c933366bc05fb104, type: 3}
+  - {fileID: 8300000, guid: 724990c65e74909418c19a5095074402, type: 3}
+  - {fileID: 8300000, guid: c52cf780a040aa941b135aef49252fee, type: 3}
+  revealAudioTimer: 3
 --- !u!114 &114963154492598742
 MonoBehaviour:
   m_ObjectHideFlags: 1
