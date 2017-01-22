@@ -376,9 +376,9 @@ MonoBehaviour:
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: correct
+          name: success
           isSystemEvent: 0
-          isGlobal: 0
+          isGlobal: 1
         toState: switch meshes
         linkStyle: 0
         linkConstraint: 0
@@ -388,8 +388,8 @@ MonoBehaviour:
         - HutongGames.PlayMaker.Actions.BoolChanged
         customNames:
         - 
-        actionEnabled: 01
-        actionIsOpen: 01
+        actionEnabled: 00
+        actionIsOpen: 00
         actionStartIndex: 00000000
         actionHashCodes: 6a906204
         unityObjectParams: []
@@ -445,8 +445,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 271
-        y: 117
+        x: 261
+        y: 110
         width: 117
         height: 32
       isBreakpoint: 0
@@ -610,8 +610,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 286
-        y: 168
+        x: 276
+        y: 161
         width: 100
         height: 32
       isBreakpoint: 0
@@ -682,8 +682,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 290
-        y: 224
+        x: 280
+        y: 217
         width: 100
         height: 32
       isBreakpoint: 0
@@ -815,6 +815,9 @@ MonoBehaviour:
     - name: correct
       isSystemEvent: 0
       isGlobal: 0
+    - name: success
+      isSystemEvent: 0
+      isGlobal: 1
     globalTransitions: []
     variables:
       floatVariables: []
