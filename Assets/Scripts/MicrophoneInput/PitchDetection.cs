@@ -4,14 +4,14 @@ using UnityEngine.UI;
 
 namespace MicrophoneInput
 {
+    [RequireComponent(typeof(AudioSource))]
     public class PitchDetection : MonoBehaviour
     {
-        public float RmsValue;
-        public float DbValue;
-        public float PitchValue;
+        private Text _pitchDisplayText, _volumeDisplayText;
+        private const string PitchTextObjectName = "Pitch";
+        private const string VolumeTextObjectName = "Volume";
 
-        public Text PitchDisplayText;
-        public Text VolumeDisplayText;
+        private float _rmsValue, _dbValue;
 
         private const int QSamples = 8192;
         private const float RefValue = 0.1f;
@@ -24,19 +24,33 @@ namespace MicrophoneInput
 
         private PitchTracker _pitchTracker;
 
+        public float PitchValue { get; private set; }
+
 
         void Start()
         {
-            _samples = new float[QSamples];
-            _spectrum = new float[QSamples];
-            _fSample = AudioSettings.outputSampleRate;
-            _audioSource = GetComponent<AudioSource>();
-            _pitchTracker = new PitchTracker(_fSample);
+            InitializeVariables();
+            GetComponents();
         }
 
         void Update()
         {
             AnalyzeSound();
+        }
+
+        private void InitializeVariables()
+        {
+            _samples = new float[QSamples];
+            _spectrum = new float[QSamples];
+            _fSample = AudioSettings.outputSampleRate;
+            _pitchTracker = new PitchTracker(_fSample);
+        }
+
+        private void GetComponents()
+        {
+            _audioSource = GetComponent<AudioSource>();
+            _pitchDisplayText = GameObject.Find(PitchTextObjectName).GetComponent<Text>();
+            _volumeDisplayText = GameObject.Find(VolumeTextObjectName).GetComponent<Text>();
         }
 
         void AnalyzeSound()
@@ -48,9 +62,9 @@ namespace MicrophoneInput
             {
                 sum += _samples[i] * _samples[i]; // sum squared samples
             }
-            RmsValue = Mathf.Sqrt(sum / QSamples); // rms = square root of average
-            DbValue = 20 * Mathf.Log10(RmsValue / RefValue); // calculate dB
-            if (DbValue < -160) DbValue = -160; // clamp it to -160dB min
+            _rmsValue = Mathf.Sqrt(sum / QSamples); // rms = square root of average
+            _dbValue = 20 * Mathf.Log10(_rmsValue / RefValue); // calculate dB
+            if (_dbValue < -160) _dbValue = -160; // clamp it to -160dB min
             // get sound spectrum
             _audioSource.GetSpectrumData(_spectrum, 0, FFTWindow.BlackmanHarris);
             float maxV = 0;
@@ -80,8 +94,8 @@ namespace MicrophoneInput
 
         private void DisplayUI()
         {
-            SetText(PitchValue, "Pitch : ", PitchDisplayText);
-            SetText(DbValue, "Volume : ", VolumeDisplayText);
+            SetText(PitchValue, "Pitch : ", _pitchDisplayText);
+            SetText(_dbValue, "Volume : ", _volumeDisplayText);
         }
 
         private void SetText(float value, string label, Text uiText)

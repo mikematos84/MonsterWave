@@ -11,7 +11,7 @@ namespace MicrophoneInput
         private AudioClip _tempClip;
         private int _sampleRate;
 
-        private readonly string _audioGameObject = "AudioSource";
+        private readonly string _audioGameObject = "PitchDetection";
         private readonly KeyCode _micPress = KeyCode.BackQuote;
         private readonly int _maxRecordTime = 300;
 
