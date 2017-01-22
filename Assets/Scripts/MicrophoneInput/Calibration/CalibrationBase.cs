@@ -22,7 +22,7 @@ namespace MicrophoneInput
 
         protected PitchDetection PitchDetection;
 
-        protected float CalibrationTimer = 3f;
+        protected float CalibrationTimer = 5f;
 
 
         protected void Initialize()
