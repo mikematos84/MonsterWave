@@ -11,8 +11,8 @@ public class MonsterManager : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-		
-	}
+        InvokeRepeating("RandomSpawn", 0.0f, 10.0f);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -22,14 +22,18 @@ public class MonsterManager : MonoBehaviour {
     public void AddSpawnPoint(SpawnPoint spawnPoint)
     {
         spawnPoints.Add(spawnPoint);
-        int rand = Random.Range(0, monsters.Count);
-        Debug.Log(rand);
+    }
+
+    public void RandomSpawn()
+    {
+        //random spawnpoint
+        int rand = Random.Range(0, spawnPoints.Count);
+        SpawnPoint spawnPoint = spawnPoints[rand];
+
+        //random monster
+        rand = Random.Range(0, monsters.Count);
         GameObject m_RandomMonster = monsters[rand];
-        Transform m_Transform = m_RandomMonster.transform;
-        GameObject m_Object = Instantiate(m_RandomMonster, new Vector3(0,0,0), Quaternion.identity);
-        m_Object.transform.position = spawnPoint.transform.position;
-        m_Object.transform.rotation = spawnPoint.transform.rotation;
-        m_Object.gameObject.name = "Monster_" + monsterCount;
-        monsterCount++;
+
+        spawnPoint.Spawn(m_RandomMonster);
     }
 }
