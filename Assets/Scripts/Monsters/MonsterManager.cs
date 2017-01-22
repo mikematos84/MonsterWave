@@ -8,15 +8,21 @@ public class MonsterManager : MonoBehaviour {
     public List<GameObject> monsters;
     public int monsterCount = 0;
     public int friendCount = 0;
+
+    public List<TextMesh> txt_FriendCounters;
     
 	// Use this for initialization
 	void Start () {
         InvokeRepeating("RandomSpawn", 0.0f, 10.0f);
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
+        foreach(TextMesh friendCounter in txt_FriendCounters)
+        {
+            friendCounter.text = friendCount.ToString();
+        }
 	}
 
     public void AddSpawnPoint(SpawnPoint spawnPoint)
