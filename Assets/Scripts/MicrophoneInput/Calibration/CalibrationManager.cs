@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace MicrophoneInput.Calibration
 {
@@ -23,6 +24,7 @@ namespace MicrophoneInput.Calibration
             _highPitchCalibration.gameObject.SetActive(false);
 
             _lowPitchCalibration.gameObject.SetActive(true);
+
         }
 	
         // Update is called once per frame
@@ -40,7 +42,6 @@ namespace MicrophoneInput.Calibration
             yield return new WaitForSeconds(2f);
             _highPitchCalibration.gameObject.SetActive(true);
             activated = true;
-
         }
     }
 }

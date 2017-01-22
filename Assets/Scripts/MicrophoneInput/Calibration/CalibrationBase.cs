@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 using UnityEngine.UI;
 using VRTK.Examples;
@@ -24,6 +25,8 @@ namespace MicrophoneInput
         protected PitchDetection PitchDetection;
 
         protected float CalibrationTimer = 5f;
+
+        private Transform DataSaver;
 
 
         protected void Initialize()
@@ -61,6 +64,8 @@ namespace MicrophoneInput
                 var medianPitch = GetMedian(pitches);
                 PitchCalibrationText.text = RegisteredVoiceString + medianPitch;
 
+                DataSaver = GameObject.Find("MicrophoneObjects").transform;
+                DataSaver.GetComponent<SceneSaver>().SetTargetPitch(transform,medianPitch);
             }
         }
 

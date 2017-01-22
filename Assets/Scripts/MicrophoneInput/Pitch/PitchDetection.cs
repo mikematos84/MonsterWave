@@ -24,6 +24,8 @@ namespace MicrophoneInput
 
         private PitchTracker _pitchTracker;
 
+        public bool displayPitch = true;
+
         public float PitchValue { get; private set; }
 
 
@@ -84,7 +86,8 @@ namespace MicrophoneInput
                 freqN += 0.5f * (dR * dR - dL * dL);
             }
             PitchValue = GetPitchValue(_pitchTracker.ProcessBuffer(_samples));
-            DisplayUI();
+            if (displayPitch)
+                DisplayUI();
         }
 
         private float GetPitchValue(float freqN)
