@@ -19,14 +19,17 @@ namespace MicrophoneInput
         private void Update ()
         {
             if (!enabled) return;
-            if (Calibrating || IsFinishedCalibrating) return;
-            StartCalibration();
-            StartCoroutine(Calibrate());
+            if (!Calibrating || !IsFinishedCalibrating)
+            {
+                StartCalibration();
+            }
+            if(!IsFinishedCalibrating)
+                StartCoroutine(Calibrate());
         }
 
         protected void Initialize()
         {
-            PitchCalibrationText = GetComponent<Text>();
+            PitchCalibrationText = GetComponentInParent<Text>();
             PitchDetection = GameObject.Find(PitchDetectionObjectName).GetComponent<PitchDetection>();
 
             DetectingVoiceString = "Detecting voice...";

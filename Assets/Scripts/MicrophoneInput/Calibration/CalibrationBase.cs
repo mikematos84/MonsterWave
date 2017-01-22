@@ -25,6 +25,10 @@ namespace MicrophoneInput
 
         protected float CalibrationTimer = 5f;
 
+        public float MedianPitch { get; private set; }
+
+        protected List<float> pitches = new List<float>();
+
 
         protected void Initialize()
         {
@@ -45,8 +49,6 @@ namespace MicrophoneInput
 
         protected IEnumerator Calibrate()
         {
-            var pitches = new List<float>();
-
             while (Calibrating && !IsFinishedCalibrating)
             {
                 if(Calibrating)
@@ -58,8 +60,8 @@ namespace MicrophoneInput
                 yield return new WaitForSeconds(CalibrationTimer);
                 Calibrating = false;
                 IsFinishedCalibrating = true;
-                var medianPitch = GetMedian(pitches);
-                PitchCalibrationText.text = RegisteredVoiceString + medianPitch;
+                MedianPitch = GetMedian(pitches);
+                PitchCalibrationText.text = RegisteredVoiceString + MedianPitch;
 
             }
         }
