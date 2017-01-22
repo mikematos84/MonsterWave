@@ -21,7 +21,7 @@ public class Monster : MonoBehaviour {
 
     public void Friend()
     {
-        if (friend)
+        if (!friend)
         {
             m_Dialog.SetDialogue("happy");
             m_Audio.SetAudio("happy");
