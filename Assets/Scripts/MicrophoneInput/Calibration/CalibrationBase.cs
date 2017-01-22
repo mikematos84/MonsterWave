@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -45,7 +46,6 @@ namespace MicrophoneInput
         protected IEnumerator Calibrate()
         {
             var pitches = new List<float>();
-            float pitchTotal = 0f;
 
             while (Calibrating && !IsFinishedCalibrating)
             {
@@ -54,15 +54,30 @@ namespace MicrophoneInput
                 if (PitchDetection.PitchValue > 0)
                 {
                     pitches.Add(PitchDetection.PitchValue);
-                    pitchTotal += PitchDetection.PitchValue;
                 }
                 yield return new WaitForSeconds(CalibrationTimer);
                 Calibrating = false;
                 IsFinishedCalibrating = true;
-                var avgPitch = pitchTotal / pitches.Count;
-                PitchCalibrationText.text = RegisteredVoiceString + avgPitch;
+                var medianPitch = GetMedian(pitches);
+                PitchCalibrationText.text = RegisteredVoiceString + medianPitch;
 
             }
+        }
+
+        protected float GetMedian(List<float> sourceNumbers) {
+            //Framework 2.0 version of this method. there is an easier way in F4
+            if (sourceNumbers == null || sourceNumbers.Count == 0)
+                throw new Exception("Median of empty list not defined.");
+
+            //make sure the list is sorted, but use a new array
+            float[] sortedPNumbers = sourceNumbers.ToArray();
+            Array.Sort(sortedPNumbers);
+
+            //get the median
+            int size = sortedPNumbers.Length;
+            int mid = size / 2;
+            float median = (size % 2 != 0) ? sortedPNumbers[mid] : (sortedPNumbers[mid] + sortedPNumbers[mid - 1]) / 2;
+            return median;
         }
 
 
