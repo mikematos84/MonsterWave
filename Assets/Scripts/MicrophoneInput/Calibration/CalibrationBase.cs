@@ -66,7 +66,7 @@ namespace MicrophoneInput
                 var medianPitch = GetMedian(pitches);
                 PitchCalibrationText.text = RegisteredVoiceString + medianPitch;
 
-                DataSaver = GameObject.Find("MicrophoneGrouping").transform;
+                DataSaver = GameObject.Find("MicrophoneObjects").transform;
                 DataSaver.GetComponent<SceneSaver>().SetTargetPitch(transform,medianPitch);
             }
         }
