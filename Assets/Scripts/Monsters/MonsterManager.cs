@@ -13,7 +13,7 @@ public class MonsterManager : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-        InvokeRepeating("RandomSpawn", 0.0f, 10.0f);
+        InvokeRepeating("RandomSpawn", 0.0f, 5.0f);
 
     }
 	

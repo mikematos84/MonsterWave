@@ -32,13 +32,13 @@ public class MonsterDialogue : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        monsterText = GetComponent<TextMesh>();
+         monsterText = GetComponent<TextMesh>();
 
         //to be replaced when specific characters play specific roles.
-        if (MonsterRole == 0)
-        {
+       // if (MonsterRole == 0)
+       // {
             MonsterRole = Random.Range(1, totalRoles);
-        }
+       // }
 
         MonsterGreeting = greetingOptions[MonsterRole-1];
         MonsterConfused = confusedOptions[MonsterRole-1];

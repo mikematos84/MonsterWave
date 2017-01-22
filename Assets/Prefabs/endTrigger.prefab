@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23885811573443576}
   - component: {fileID: 54510405179492032}
   - component: {fileID: 114316406027476966}
+  - component: {fileID: 114605336417510758}
   m_Layer: 8
   m_Name: endTrigger
   m_TagString: Untagged
@@ -611,4 +612,15 @@ MonoBehaviour:
     handleAnimatorMove: 0
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
-  eventHandlerComponentsAdded: 0
+  eventHandlerComponentsAdded: 1
+--- !u!114 &114605336417510758
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1351971585350190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 82786459, guid: de72a6d2da64d114d95e3c5a01cfaec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
