@@ -9,19 +9,25 @@ public class Monster : MonoBehaviour {
     public int attempts = 0;
     public bool friend = false;
 
+    private MonsterDialogue m_Dialog;
+    private MonsterAudio m_Audio;
+
     void Start()
     {
+        mgr = FindObjectOfType<MonsterManager>();
+        m_Dialog = gameObject.GetComponentInChildren<MonsterDialogue>();
+        m_Audio = gameObject.transform.parent.gameObject.GetComponent<MonsterAudio>();
     }
 
     public void Friend()
     {
-        MonsterDialogue m_Dialog = gameObject.GetComponentInChildren<MonsterDialogue>();
-        MonsterAudio m_Audio = gameObject.GetComponentInChildren<MonsterAudio>();
-
-        m_Dialog.SetDialogue("happy");
-        m_Audio.SetAudio("happy");
-        mgr.friendCount++;
-        friend = true;
+        if (!friend)
+        {
+            m_Dialog.SetDialogue("happy");
+            m_Audio.SetAudio("happy");
+            mgr.friendCount++;
+            friend = true;
+        }
     }
 
     public void Unfriend()
@@ -31,8 +37,6 @@ public class Monster : MonoBehaviour {
             return;
         }
 
-        MonsterDialogue m_Dialog = gameObject.GetComponentInChildren<MonsterDialogue>();
-        MonsterAudio m_Audio = gameObject.GetComponentInChildren<MonsterAudio>();
 
         m_Dialog.SetDialogue(attempts.ToString());
         m_Audio.SetAudio(attempts.ToString());

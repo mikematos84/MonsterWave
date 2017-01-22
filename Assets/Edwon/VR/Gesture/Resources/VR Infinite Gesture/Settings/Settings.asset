@@ -15,34 +15,115 @@ MonoBehaviour:
   vrType: 0
   showVRUI: 0
   gestureButton: 5
-  confidenceThreshold: 0.9870297312736511
+  confidenceThreshold: 0.8513221144676208
   gestureSyncDelay: 500
   minimumGestureAxisLength: 0.1
   beginInDetectMode: 1
   vrGestureDetectType: 0
-  currentNeuralNet: Monster Waves
-  lastNeuralNet: Monster Waves
+  currentNeuralNet: Monster Waves 2
+  lastNeuralNet: Monster Waves 2
   neuralNets:
   - Example 1 - Basics
   - Example 2 - Powers
   - Monster Waves
+  - Monster Waves 2
   gestureBank:
-  - name: Simple Wave
+  - name: MinotaurWipersLeft1
     hand: 1
-    isSynchronous: 0
+    isSynchronous: 1
     exampleCount: 20
-  - name: Vertical Wave
+  - name: MinotaurWipersRight1
     hand: 1
-    isSynchronous: 0
-    exampleCount: 19
+    isSynchronous: 1
+    exampleCount: 20
+  - name: MinotaurWipersLeft2
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: MinotaurWipersRight2
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: OctobatFlapUp1
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: OctobatFlapDown1
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: OctobatFlapUp2
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: OctobatFlapDown2
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: EleflyWindmillIn1
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: EleflyWindmillOut1
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: EleflyWindmillIn2
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: EleflyWindmillOut2
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
   gestureBankPreEdit:
-  - name: Simple Wave
+  - name: MinotaurWipersLeft1
     hand: 1
-    isSynchronous: 0
+    isSynchronous: 1
+    exampleCount: 20
+  - name: MinotaurWipersRight1
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: MinotaurWipersLeft2
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: MinotaurWipersRight2
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: OctobatFlapUp1
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: OctobatFlapDown1
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: OctobatFlapUp2
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: OctobatFlapDown2
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 20
+  - name: EleflyWindmillIn1
+    hand: 1
+    isSynchronous: 1
     exampleCount: 0
-  - name: Vertical Wave
+  - name: EleflyWindmillOut1
     hand: 1
-    isSynchronous: 0
+    isSynchronous: 1
+    exampleCount: 0
+  - name: EleflyWindmillIn2
+    hand: 1
+    isSynchronous: 1
+    exampleCount: 0
+  - name: EleflyWindmillOut2
+    hand: 1
+    isSynchronous: 1
     exampleCount: 0
   state: 0
   stateInitial: 8
