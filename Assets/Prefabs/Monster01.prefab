@@ -1370,7 +1370,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 0.2
+          value: 0.8
         - useVariable: 0
           name: 
           tooltip: 
@@ -1507,7 +1507,7 @@ MonoBehaviour:
         customNames:
         - 
         - 
-        actionEnabled: 0100
+        actionEnabled: 0000
         actionIsOpen: 0101
         actionStartIndex: 000000000f000000
         actionHashCodes: 74157803d7249c03
@@ -1897,7 +1897,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 0.2
+          value: 0.8
         - useVariable: 0
           name: 
           tooltip: 
@@ -2034,7 +2034,7 @@ MonoBehaviour:
         customNames:
         - 
         - 
-        actionEnabled: 0100
+        actionEnabled: 0000
         actionIsOpen: 0100
         actionStartIndex: 000000000f000000
         actionHashCodes: 74157803d7249c03
