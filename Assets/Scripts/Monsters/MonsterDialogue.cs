@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class MonsterDialogue : MonoBehaviour {
 
-    public string newStatus = "";
+    public int MonsterRole;
+
+    private int totalRoles = 3;
 
     private string MonsterGreeting;
     private string MonsterConfused;
+    private string MonsterSkeptical;
     private string MonsterAngry;
     private string MonsterHappy;
 
-    private int randomCharacter;
-    private int totalCharacters = 3;
     private TextMesh monsterText;
-    private string currentStatus = "";
 
     private string tempText = "";
     private int waitCount = 0;
     private int maxWait = 1;
+    public float revealTimer = 3.0f;
 
-    public string[] status = new string[] { "greeting", "confused", "angry", "happy" };
+    public string[] status = new string[] { "greeting", "confused", "skeptical", "angry", "happy" };
 
-    private string[] greetingOptions = new string[] {"I'm Bob! \nI love making friends!", "Hiya, I'm Yolanda! \nDo you wanna hug?", "Ronald wants to throw you\n a surprise birthday party!", "Hola! I'm Penelope, \nand I wrote you a song!"};
-    private string[] confusedOptions = new string[] {"But...but...\nare we not friends??", "How...come...you...\ndon't wanna hug??", "What...do...you...mean...\nit's not your birthday??", "Did...you...just...say...\nyou don't like songs??"};
+    private string[] greetingOptions = new string[] {"I'm Bob! \nI love making friends!", "Hiya, I'm Yolanda! \nDo you know what time it is?", "Ronald wants to throw you\n a surprise birthday party!", "Aloha! I'm Penelope, \nand I wrote you a song!"};
+    private string[] confusedOptions = new string[] {"Do you think we \ncould be friends?", "It's hug time!\n Wanna hug?", "Ronald doesn't understand \nwhy you aren't surprised.", "Do you want to hear \nthe song I wrote?"};
+    private string[] skepticalOptions = new string[] { "So...then...\nare we not friends??", "How...come...you...\ndon't wanna hug??", "What...do...you...mean...\nit's not your birthday??", "Did...you...just...say...\nyou don't like songs??" };
     private string[] angryOptions = new string[] {"I WAS GOING TO MAKE US \nFRIENDSHIP BRACELETS!!!", "HUGS ARE SCIENTIFICALLY \nPROVEN TO CALM THE SOUL!!!", "BUT RONALD GOT YOU A PRESENT \nAND EVERYTHING!!!", "BUT I DIDN'T EVEN \nGET TO THE CHORUS!!!"};
     private string[] happyOptions = new string[] {"Yay! Friends for life!", "Awesome! Let's hug \nwith our minds!", "Ronald can't wait \nto bring out the cake!", "Song time! And-a-one, \nand-a-two..."};
 
@@ -32,18 +34,32 @@ public class MonsterDialogue : MonoBehaviour {
 
         monsterText = GetComponent<TextMesh>();
 
-        randomCharacter = Random.Range(0, totalCharacters);
-        MonsterGreeting = greetingOptions[randomCharacter];
-        MonsterConfused = confusedOptions[randomCharacter];
-        MonsterAngry = angryOptions[randomCharacter];
-        MonsterHappy = happyOptions[randomCharacter];
+        //to be replaced when specific characters play specific roles.
+        MonsterRole = Random.Range(0, totalRoles);
 
-        SetDialogue("greeting");
+        MonsterGreeting = greetingOptions[MonsterRole];
+        MonsterConfused = confusedOptions[MonsterRole];
+        MonsterAngry = angryOptions[MonsterRole];
+        MonsterHappy = happyOptions[MonsterRole];
 
 	}
 
     void Update ()
     {
+        if(revealTimer >= 0.0f)
+        {
+
+            revealTimer -= Time.deltaTime;
+
+            if(revealTimer <= 0.0f)
+            {
+
+                SetDialogue("greeting");
+
+            }
+
+        }
+
 
         if (tempText != "")
         {
@@ -81,11 +97,15 @@ public class MonsterDialogue : MonoBehaviour {
                 tempText = MonsterConfused;
                 monsterText.transform.localScale = new Vector3(0.012f, 0.012f, 0.012f);
                 break;
-            case "angry":
+            case "skeptical":
             case "1":
+                tempText = MonsterSkeptical;
+                monsterText.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+                break;
+            case "angry":
             case "2":
                 tempText = MonsterAngry;
-                monsterText.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+                monsterText.transform.localScale = new Vector3(0.008f, 0.008f, 0.008f);
                 break;
             case "happy":
                 tempText = MonsterHappy;
