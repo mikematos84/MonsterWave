@@ -5,17 +5,15 @@ using UnityEngine;
 public class Monster : MonoBehaviour {
 
     MonsterManager mgr = null;
-    public float thrust;
-    public Rigidbody rb;
+    string waveType = "Simple Wave";
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        
     }
 
     void FixedUpdate()
     {
-        //rb.AddForce(transform.forward * thrust, ForceMode.Force);
-        transform.Translate(0, 0, thrust * Time.deltaTime);
+        
     }
 }
