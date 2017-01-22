@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 4124745110702834}
   - component: {fileID: 82396324110067392}
   - component: {fileID: 114334417770304742}
+  - component: {fileID: 114106393825080756}
   m_Layer: 0
   m_Name: Monster02
   m_TagString: Untagged
@@ -1264,6 +1265,24 @@ Light:
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114106393825080756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1624571321652358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a82d06957342fd4181d869fffa79d07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterClips:
+  - {fileID: 8300000, guid: 9931dc9c8d19d7043b7f418c6db3933c, type: 3}
+  - {fileID: 8300000, guid: a7cd8470839f0c54196807a7bde56dd7, type: 3}
+  - {fileID: 8300000, guid: b0ee9a6363babc54b9e722a11812e940, type: 3}
+  - {fileID: 8300000, guid: a28a6aaddce38f24c868d4a57bc7c06e, type: 3}
+  - {fileID: 8300000, guid: d6a336ebece03074fa2c5816448ac21e, type: 3}
+  revealAudioTimer: 2.5
 --- !u!114 &114229284874433506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1275,8 +1294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6426b47a0ec9f954080bef07bbc44bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterRole: 0
-  revealTimer: 3
+  MonsterRole: 2
+  revealTimer: 2.5
   status:
   - greeting
   - confused

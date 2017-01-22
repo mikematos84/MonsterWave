@@ -16,7 +16,10 @@ public class Monster : MonoBehaviour {
     public void Friend()
     {
         MonsterDialogue m_Dialog = gameObject.GetComponentInChildren<MonsterDialogue>();
+        MonsterAudio m_Audio = gameObject.GetComponentInChildren<MonsterAudio>();
+
         m_Dialog.SetDialogue("happy");
+        m_Audio.SetAudio("happy");
         mgr.friendCount++;
         friend = true;
     }
@@ -29,7 +32,11 @@ public class Monster : MonoBehaviour {
         }
 
         MonsterDialogue m_Dialog = gameObject.GetComponentInChildren<MonsterDialogue>();
+        MonsterAudio m_Audio = gameObject.GetComponentInChildren<MonsterAudio>();
+
         m_Dialog.SetDialogue(attempts.ToString());
+        m_Audio.SetAudio(attempts.ToString());
+
         attempts++;
 
         if (attempts > 2)
