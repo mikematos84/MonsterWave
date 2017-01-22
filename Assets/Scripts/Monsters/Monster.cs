@@ -21,11 +21,13 @@ public class Monster : MonoBehaviour {
 
     public void Friend()
     {
-
-        m_Dialog.SetDialogue("happy");
-        m_Audio.SetAudio("happy");
-        mgr.friendCount++;
-        friend = true;
+        if (!friend)
+        {
+            m_Dialog.SetDialogue("happy");
+            m_Audio.SetAudio("happy");
+            mgr.friendCount++;
+            friend = true;
+        }
     }
 
     public void Unfriend()
