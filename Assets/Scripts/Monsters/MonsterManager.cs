@@ -7,6 +7,7 @@ public class MonsterManager : MonoBehaviour {
     public List<SpawnPoint> spawnPoints;
     public List<GameObject> monsters;
     public int monsterCount = 0;
+    public int friendCount = 0;
     
 	// Use this for initialization
 	void Start () {
