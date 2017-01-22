@@ -52,25 +52,25 @@
             "name": "EleflyWindmillIn1",
             "hand": 1,
             "isSynchronous": true,
-            "exampleCount": 0
+            "exampleCount": 20
         },
         {
             "name": "EleflyWindmillOut1",
             "hand": 1,
             "isSynchronous": true,
-            "exampleCount": 0
+            "exampleCount": 20
         },
         {
             "name": "EleflyWindmillIn2",
             "hand": 1,
             "isSynchronous": true,
-            "exampleCount": 0
+            "exampleCount": 20
         },
         {
             "name": "EleflyWindmillOut2",
             "hand": 1,
             "isSynchronous": true,
-            "exampleCount": 0
+            "exampleCount": 20
         }
     ]
 }
