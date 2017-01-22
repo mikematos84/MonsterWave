@@ -42,6 +42,7 @@ public class MonsterDialogue : MonoBehaviour {
 
         MonsterGreeting = greetingOptions[MonsterRole-1];
         MonsterConfused = confusedOptions[MonsterRole-1];
+        MonsterSkeptical = skepticalOptions[MonsterRole - 1];
         MonsterAngry = angryOptions[MonsterRole-1];
         MonsterHappy = happyOptions[MonsterRole-1];
 
@@ -93,22 +94,18 @@ public class MonsterDialogue : MonoBehaviour {
         {
             case "greeting":
                 tempText = MonsterGreeting;
-                monsterText.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
                 break;
             case "confused":
             case "0":
                 tempText = MonsterConfused;
-                monsterText.transform.localScale = new Vector3(0.012f, 0.012f, 0.012f);
                 break;
             case "skeptical":
             case "1":
                 tempText = MonsterSkeptical;
-                monsterText.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
                 break;
             case "angry":
             case "2":
                 tempText = MonsterAngry;
-                monsterText.transform.localScale = new Vector3(0.008f, 0.008f, 0.008f);
                 break;
             case "happy":
                 tempText = MonsterHappy;

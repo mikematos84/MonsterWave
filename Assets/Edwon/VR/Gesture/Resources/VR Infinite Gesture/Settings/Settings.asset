@@ -13,15 +13,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 0
   vrType: 0
-  showVRUI: 0
+  showVRUI: 1
   gestureButton: 5
-  confidenceThreshold: 0.8513221144676208
+  confidenceThreshold: 0.800000011920929
   gestureSyncDelay: 500
   minimumGestureAxisLength: 0.1
   beginInDetectMode: 1
   vrGestureDetectType: 0
   currentNeuralNet: Monster Waves 2
-  lastNeuralNet: Monster Waves 2
+  lastNeuralNet: Monster Waves
   neuralNets:
   - Example 1 - Basics
   - Example 2 - Powers
@@ -112,18 +112,18 @@ MonoBehaviour:
   - name: EleflyWindmillIn1
     hand: 1
     isSynchronous: 1
-    exampleCount: 0
+    exampleCount: 20
   - name: EleflyWindmillOut1
     hand: 1
     isSynchronous: 1
-    exampleCount: 0
+    exampleCount: 20
   - name: EleflyWindmillIn2
     hand: 1
     isSynchronous: 1
-    exampleCount: 0
+    exampleCount: 20
   - name: EleflyWindmillOut2
     hand: 1
     isSynchronous: 1
-    exampleCount: 0
+    exampleCount: 20
   state: 0
   stateInitial: 8

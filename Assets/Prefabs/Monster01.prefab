@@ -941,8 +941,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.69104004, y: 1.1897787, z: 0.2}
-  m_Center: {x: -0.02558376, y: 0.12116506, z: -0.0000013052394}
+  m_Size: {x: 0.69104004, y: 3.0070617, z: 0.19999997}
+  m_Center: {x: -0.02558376, y: 1.0298036, z: -0.0000013052394}
 --- !u!82 &82339689043766676
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1140,7 +1140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87bed18a11c8ab044a8bb838155e1129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveType: Simple Wave
+  waveType:
+  - MinotaurWipersLeft1
+  - MinotaurWipersLeft2
+  - MinotaurWipersRight1
+  - MinotaurWipersRight2
   attempts: 0
   friend: 0
 --- !u!114 &114416585429066434
