@@ -1,0 +1,76 @@
+{
+    "gestures": [
+        {
+            "name": "MinotaurWipersLeft1",
+            "hand": 1,
+            "isSynchronous": true,
+            "exampleCount": 20
+        },
+        {
+            "name": "MinotaurWipersRight1",
+            "hand": 1,
+            "isSynchronous": true,
+            "exampleCount": 20
+        },
+        {
+            "name": "MinotaurWipersLeft2",
+            "hand": 1,
+            "isSynchronous": true,
+            "exampleCount": 20
+        },
+        {
+            "name": "MinotaurWipersRight2",
+            "hand": 1,
+            "isSynchronous": true,
+            "exampleCount": 20
+        },
+        {
+            "name": "OctobatFlapDown1",
+            "hand": 1,
+            "isSynchronous": true,
+            "exampleCount": 22
+        },
+        {
+            "name": "OctobatFlapUp1",
+            "hand": 1,
+            "isSynchronous": true,
+            "exampleCount": 20
+        },
+        {
+            "name": "OctobatFlapDown2",
+            "hand": 1,
+            "isSynchronous": true,
+            "exampleCount": 22
+        },
+        {
+            "name": "OctobatFlapUp2",
+            "hand": 1,
+            "isSynchronous": true,
+            "exampleCount": 20
+        },
+        {
+            "name": "EleflyWindmillIn1",
+            "hand": 1,
+            "isSynchronous": true,
+            "exampleCount": 22
+        },
+        {
+            "name": "EleflyWindmillOut1",
+            "hand": 1,
+            "isSynchronous": true,
+            "exampleCount": 22
+        },
+        {
+            "name": "EleflyWindmillIn2",
+            "hand": 1,
+            "isSynchronous": true,
+            "exampleCount": 20
+        },
+        {
+            "name": "EleflyWindmillOut2",
+            "hand": 1,
+            "isSynchronous": true,
+            "exampleCount": 20
+        }
+    ]
+}
